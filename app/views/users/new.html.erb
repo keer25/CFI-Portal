@@ -1,2 +1,24 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, "Signup") %>
+<h1>Create an Account</h1>
+<br>
+<form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+      
+
+      <label for="user_name">Name*</label>
+      <input class="form-control" type="text" name="user[name]" id="user_name" />
+      <br>
+
+      <label for="user_email">Email*</label>
+      <input class="form-control" type="email" name="user[email]" id="user_email" />
+      <br>
+
+      <label for="user_password">Password*</label>
+      <input class="form-control" type="password" name="user[password]" id="user_password" />
+      <br>
+
+      <label for="user_password_confirmation">Password Confirmation*</label>
+      <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+      <br>
+      
+      <input type="submit" name="commit" value="Create my account" class="btn btn-primary" />
+</form>
