@@ -1,6 +1,5 @@
 
 source 'https://rubygems.org'
-gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -16,6 +15,8 @@ gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.3'
 gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
+gem 'bcrypt', '~> 3.1.7'
+gem 'puma'
 gem 'sdoc',         '0.4.0', group: :doc
 
 group :development, :test do
