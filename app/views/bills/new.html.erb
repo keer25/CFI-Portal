@@ -5,11 +5,11 @@
       
 
       <label for="bill_project">Project</label>
-      <input class="form-control" type="text" name="bill[project]" id="bill_project" />
+      <input class="form-control" type="text" name="bill[project]" id="bill_project" required maxlength="100" />
       <br>
 
       <label for="bill_amount">Amount</label>
-      <input class="form-control" type="number" step="any" name="bill[amount]" id="bill_amount" />
+      <input class="form-control" type="number" step="any" name="bill[amount]" id="bill_amount" min="0" max = "1000000000"/>
       <br>
 
       <label for="bill_purchase_date">Date of Purchase (yyyy-mm-dd)</label>

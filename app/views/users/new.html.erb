@@ -5,19 +5,19 @@
       
 
       <label for="user_name">Name*</label>
-      <input class="form-control" type="text" name="user[name]" id="user_name" />
+      <input class="form-control" type="text" name="user[name]" id="user_name" maxlength = "50" required/>
       <br>
 
       <label for="user_email">Email*</label>
-      <input class="form-control" type="email" name="user[email]" id="user_email" />
+      <input class="form-control" type="email" name="user[email]" id="user_email" maxlength="255" required />
       <br>
 
       <label for="user_password">Password*</label>
-      <input class="form-control" type="password" name="user[password]" id="user_password" />
+      <input class="form-control" type="password" name="user[password]" id="user_password" minlength = "6" maxlength="50" required />
       <br>
 
       <label for="user_password_confirmation">Password Confirmation*</label>
-      <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+      <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" minlength = "6" maxlength="50" required />
       <br>
       
       <input type="submit" name="commit" value="Create my account" class="btn btn-primary" />
