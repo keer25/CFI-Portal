@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130051419) do
+ActiveRecord::Schema.define(version: 20160131080230) do
+
+  create_table "bills", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.date     "purchase_date"
+    t.decimal  "amount"
+  end
+
+  add_index "bills", ["project_id"], name: "index_bills_on_project_id"
+  add_index "bills", ["user_id", "created_at"], name: "index_bills_on_user_id_and_created_at"
+  add_index "bills", ["user_id"], name: "index_bills_on_user_id"
+
+  create_table "clubs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "club_id"
+  end
+
+  add_index "projects", ["club_id"], name: "index_projects_on_club_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -19,8 +47,10 @@ ActiveRecord::Schema.define(version: 20160130051419) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.integer  "club_id"
   end
 
+  add_index "users", ["club_id"], name: "index_users_on_club_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
