@@ -9,8 +9,24 @@ class BillsController < ApplicationController
 	def create
 		bill_init = bill_params
 		bill_init[:user_id] = session[:user_id]
-		bill_init[:project_id] = (Project.find_by(name: bill_init[:project]) ||
-														 Project.create(:name => bill_init[:project])).id
+		#bill_init[:project_id] = (Project.find_by(name: bill_init[:project]) ||
+		#												 Project.create(:name => bill_init[:project])).id
+		bill_init[:project_id] = (Project.find_by(name: bill_init[:project]))
+		if ( bill_init[:project_id] == nil )
+			if ((bill_init[:project_id] = Project.create( :name => bill_init[:project], :club_id => current_user.club_id ).id) != nil)
+				logger.info "Project id obtained"		
+			else
+				render 'new'
+			end
+		else 
+			proj = Project.find_by(name: bill_init[:project])
+			if proj.club_id == current_user.club_id
+				bill_init[:project_id] = proj.id
+			else
+				logger.info "Invalid Club Member"
+				render 'new'
+			end
+		end
     bill_init.delete :project	
     @bill = Bill.new(bill_init)
     if (@bill.save)
@@ -18,7 +34,6 @@ class BillsController < ApplicationController
     else 
     	logger.info "Bill Invalid"	
     end
-		logger.info bill_init
 		redirect_to root_url
 	end
 

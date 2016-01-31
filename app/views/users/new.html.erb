@@ -19,6 +19,14 @@
       <label for="user_password_confirmation">Password Confirmation*</label>
       <input class="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" minlength = "6" maxlength="50" required />
       <br>
+
+      <label for="user_club">Associated Club*</label><br>
+      <select class="form-control" name = "user[club]" id="user_club" >
+            <% Club.all.each do |elem| %>
+            <option><%= elem.name %></option>
+            <% end %>
+      </select>
+      <br><br><br>
       
       <input type="submit" name="commit" value="Create my account" class="btn btn-primary" />
 </form>
