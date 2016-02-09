@@ -21,7 +21,7 @@
       <br>
 
       <label for="user_club">Associated Club*</label><br>
-      <select class="form-control" name = "user[club]" id="user_club" >
+      <select class="form-control" name = "user[club]" id="user_club" required>
             <% Club.all.each do |elem| %>
             <option><%= elem.name %></option>
             <% end %>
