@@ -7,7 +7,7 @@ class ClubsController < ApplicationController
 
 	def create
 		Club.create!(club_params)
-		redirect_to current_user
+		render 'new'
 	end
 	private
 
