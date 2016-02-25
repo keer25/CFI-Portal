@@ -2,11 +2,11 @@ class ClubsController < ApplicationController
 	before_action :admin_user
 
 	def new 
-		@club = Club.new
 	end
 
 	def create
 		Club.create!(club_params)
+		#redirect_to new_club_path
 		render 'new'
 	end
 	private
