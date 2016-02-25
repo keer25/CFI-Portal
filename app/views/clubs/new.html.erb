@@ -1,0 +1,12 @@
+<% provide(:title, 'Add Club') %>
+<h1>Club Details </h1>
+<div class="row">
+      <div class = "col-md-6 col-md-offset-3">
+            <%= form_for(@club) do |f| %>
+             <%= f.label :name %>
+             <%= f.text_field :name %>
+
+             <%= f.submit "Create Club", class: "btn btn-primary" %>
+      <% end %>
+      </div>
+</div>

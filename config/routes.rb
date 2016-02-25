@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :bills,          only: [:new, :create, :destroy]
+  resources :clubs,          only: [:new, :create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

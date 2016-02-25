@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.create!(name: "Keerthana",
+							email: "admin@cfiportal.com",
+							password: "adminpass",
+							password_confirmation: "adminpass",
+							club_id: 1,
+							admin: true)
+Club.create!(name: "The Webops Club")
+								
